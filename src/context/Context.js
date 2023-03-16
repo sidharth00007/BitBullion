@@ -79,6 +79,16 @@ const Context = ({ children }) => {
             // tag: 12983,
             // time: 1,
         },
+        {
+            id: 8,
+            image: super4,
+            // series: "Gloop Series",
+            title: "Regal Gold Coin 10.00g",
+            price: 57000,
+            inStock: 10,
+            // tag: 12983,
+            // time: 1,
+        },
     ];
 
     const [state, dispatch] = useReducer(cartReducer, {
