@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 import Release from "./components/Release";
-import ScrollToTop from "./components/ScrollToTop";
+// import ScrollToTop from "./components/ScrollToTop";
 // import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 // import scrollreveal from "scrollreveal";
