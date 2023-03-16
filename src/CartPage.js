@@ -40,9 +40,46 @@ const CartPage = () => {
         <div data-theme={theme} className="app-container">
             <ScrollToTop />
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
+            <h1 className="head">Cart</h1>
 
             <div className="cart">
                 <div className="product">
+                    <Row className="headers">
+                        <Col md={2}>
+                            <div className="img-cart"></div>
+                        </Col>
+                        <Col md={2}>
+                            <span>Product</span>
+                        </Col>
+                        <Col md={2}>
+                            <span> Price</span>
+                        </Col>
+                        <Col md={2}>
+                            <span> Quantity</span>
+                        </Col>
+                        <Col md={2}>
+                            {/* <Button
+                                            type="button"
+                                            variant="light"
+                                            onClick={() => {
+                                                dispatch({
+                                                    type: "REMOVE_FROM_CART",
+                                                    payload: prod,
+                                                });
+                                            }}
+                                        > */}
+                            {/* <AiFillDelete
+                                onClick={() => {
+                                    dispatch({
+                                        type: "REMOVE_FROM_CART",
+                                        payload: prod,
+                                    });
+                                }}
+                                fontSize="20px"
+                            /> */}
+                            {/* </Button> */}
+                        </Col>
+                    </Row>
                     <ListGroup>
                         {cart.map((prod) => (
                             <ListGroup.Item key={prod.id}>
@@ -88,7 +125,7 @@ const CartPage = () => {
                                         </Form.Control>
                                     </Col>
                                     <Col md={2}>
-                                        <Button
+                                        {/* <Button
                                             type="button"
                                             variant="light"
                                             onClick={() => {
@@ -97,24 +134,39 @@ const CartPage = () => {
                                                     payload: prod,
                                                 });
                                             }}
-                                        >
-                                            <AiFillDelete fontSize="20px" />
-                                        </Button>
+                                        > */}
+                                        <AiFillDelete
+                                            onClick={() => {
+                                                dispatch({
+                                                    type: "REMOVE_FROM_CART",
+                                                    payload: prod,
+                                                });
+                                            }}
+                                            fontSize="20px"
+                                        />
+                                        {/* </Button> */}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
                         ))}
                     </ListGroup>
                 </div>
-            </div>
-            <div className="filters summary">
-                <span className="title">Subtotal ({cart.length}) items</span>
-                <span style={{ fontWeight: 700, fontSize: 20 }}>
-                    Total: ₹ {total}
-                </span>
-                <Button type="button" disabled={cart.length === 0}>
-                    Proceed to Checkout
-                </Button>
+
+                <div className="filters summary">
+                    <span className="title">
+                        Subtotal ({cart.length}) items
+                    </span>
+                    <span style={{ fontWeight: 700, fontSize: 20 }}>
+                        Total: ₹ {total}
+                    </span>
+                    <Button
+                        className="proceed"
+                        type="button"
+                        disabled={cart.length === 0}
+                    >
+                        Proceed to Checkout
+                    </Button>
+                </div>
             </div>
             {/* <Home /> */}
             {/* <Clients /> */}

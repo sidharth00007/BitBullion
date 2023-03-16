@@ -30,6 +30,7 @@
     color: var(--accent-color1);
     // background-color: var(--background);
     font-weight: bold;
+    margin-left: 43%;
     padding: 1rem 3rem;
     border-radius: 2rem;
     box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
@@ -55,7 +56,7 @@
     width: 15%;
     text-align: center;
     cursor: pointer;
-    margin-left: 500px;
+    // margin-left: 500px;
     &:hover {
         box-shadow: none;
     }
