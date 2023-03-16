@@ -18,31 +18,6 @@ const HomePage = () => {
         theme === "dark" ? setTheme("light") : setTheme("dark");
     };
     useEffect(() => {
-        // const registerAnimations = () => {
-        //   const sr = scrollreveal({
-        //     origin: "bottom",
-        //     distance: "80px",
-        //     duration: 2000,
-        //     reset: false,
-        //   });
-        //   sr.reveal(
-        //     `
-        //     nav,
-        //     .home,
-        //     .free,
-        //     .clients,
-        //     .super-rare,
-        //     .releases,
-        //     .like,
-        //     .signup,
-        //     footer
-        // `,
-        //     {
-        //       interval: 500,
-        //     }
-        //   );
-        // };
-        // registerAnimations();
         window.scrollTo(0, 0);
     }, []);
     window.setTimeout(() => {
@@ -53,7 +28,7 @@ const HomePage = () => {
     }, 1500);
     return (
         <div data-theme={theme} className="app-container">
-            <ScrollToTop />
+            {/* <ScrollToTop /> */}
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
             <Home />
             <Clients />
