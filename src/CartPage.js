@@ -30,8 +30,6 @@ const CartPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-
-
     const [total, setTotal] = useState();
 
     useEffect(() => {
@@ -80,13 +78,13 @@ const CartPage = () => {
                                                 });
                                             }}
                                         >
-                                            {[...Array(prod.inStock).keys()].map(
-                                                (x) => (
-                                                    <option key={x + 1}>
-                                                        {x + 1}
-                                                    </option>
-                                                )
-                                            )}
+                                            {[
+                                                ...Array(prod.inStock).keys(),
+                                            ].map((x) => (
+                                                <option key={x + 1}>
+                                                    {x + 1}
+                                                </option>
+                                            ))}
                                         </Form.Control>
                                     </Col>
                                     <Col md={2}>
@@ -110,12 +108,14 @@ const CartPage = () => {
                 </div>
             </div>
             <div className="filters summary">
-        <span className="title">Subtotal ({cart.length}) items</span>
-        <span style={{ fontWeight: 700, fontSize: 20 }}>Total: ₹ {total}</span>
-        <Button type="button" disabled={cart.length === 0}>
-          Proceed to Checkout
-        </Button>
-      </div>
+                <span className="title">Subtotal ({cart.length}) items</span>
+                <span style={{ fontWeight: 700, fontSize: 20 }}>
+                    Total: ₹ {total}
+                </span>
+                <Button type="button" disabled={cart.length === 0}>
+                    Proceed to Checkout
+                </Button>
+            </div>
             {/* <Home /> */}
             {/* <Clients /> */}
             {/* <Release /> */}
