@@ -6,7 +6,6 @@ export default function Card({ prod }) {
         state: { cart },
         dispatch,
     } = CartState();
-    console.log(cart);
     return (
         <div className="card">
             <div className="card-image">
@@ -26,8 +25,7 @@ export default function Card({ prod }) {
                 </div>
                 {cart.some((p) => p.id === prod.id) ? (
                     <div className="card-sub-details">
-                        
-                        <div >
+                        <div>
                             <button
                                 className="remove"
                                 onClick={() => {

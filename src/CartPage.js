@@ -32,8 +32,6 @@ const CartPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    
-
     const [total, setTotal] = useState();
 
     useEffect(() => {

@@ -7,41 +7,6 @@ export default function SuperRare() {
     const {
         state: { data },
     } = CartState();
-
-    //   const data = [
-    //     {
-    //       image: super1,
-    //       // series: "Gloop Series",
-    //       title: "Gold Coins 10.00 gm",
-    //       price: "62,000",
-    //       // tag: 12983,
-    //       // time: 1,
-    //     },
-    //     {
-    //       image: super2,
-    //       // series: "Gloop Series",
-    //       title: "Gold Coins 20.00 gm",
-    //       price: "1,25,000" ,
-    //       // tag: 12983,
-    //       // time: 1,
-    //     },
-    //     {
-    //       image: super3,
-    //       // series: "Gloop Series",
-    //       title: "Gold Coins 10.00 gm",
-    //       price: "6,000",
-    //       // tag: 12983,
-    //       // time: 1,
-    //     },
-    //     {
-    //       image: super4,
-    //       // series: "Gloop Series",
-    //       title: "Regal Gold Coin 10.00g",
-    //       price: "57,000",
-    //       // tag: 12983,
-    //       // time: 1,
-    //     },
-    //   ];
     return (
         <div className="super-rare">
             <div className="title-container">
@@ -51,7 +16,7 @@ export default function SuperRare() {
                 </p>
             </div>
             <div className="cards">
-            {data.slice(0, 4).map((prod) => (
+                {data.slice(0, 4).map((prod) => (
                     <Card prod={prod} />
                 ))}
             </div>
