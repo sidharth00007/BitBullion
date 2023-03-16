@@ -40,25 +40,26 @@ const CartPage = () => {
         <div data-theme={theme} className="app-container">
             <ScrollToTop />
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
-            <h1 className="head">Cart</h1>
 
-            <div className="cart">
-                <div className="product">
-                    <Row className="headers">
-                        <Col md={2}>
-                            <div className="img-cart"></div>
-                        </Col>
-                        <Col md={2}>
-                            <span>Product</span>
-                        </Col>
-                        <Col md={2}>
-                            <span> Price</span>
-                        </Col>
-                        <Col md={2}>
-                            <span> Quantity</span>
-                        </Col>
-                        <Col md={2}>
-                            {/* <Button
+            {cart.length > 0 ? (
+                <div className="cart">
+                    <h1 className="head">Cart</h1>
+                    <div className="product">
+                        <Row className="headers">
+                            <Col md={2}>
+                                <div className="img-cart"></div>
+                            </Col>
+                            <Col md={2}>
+                                <span>Product</span>
+                            </Col>
+                            <Col md={2}>
+                                <span> Price</span>
+                            </Col>
+                            <Col md={2}>
+                                <span> Quantity</span>
+                            </Col>
+                            <Col md={2}>
+                                {/* <Button
                                             type="button"
                                             variant="light"
                                             onClick={() => {
@@ -68,7 +69,7 @@ const CartPage = () => {
                                                 });
                                             }}
                                         > */}
-                            {/* <AiFillDelete
+                                {/* <AiFillDelete
                                 onClick={() => {
                                     dispatch({
                                         type: "REMOVE_FROM_CART",
@@ -77,55 +78,57 @@ const CartPage = () => {
                                 }}
                                 fontSize="20px"
                             /> */}
-                            {/* </Button> */}
-                        </Col>
-                    </Row>
-                    <ListGroup>
-                        {cart.map((prod) => (
-                            <ListGroup.Item key={prod.id}>
-                                <Row>
-                                    <Col md={2}>
-                                        <div className="img-cart">
-                                            <Image
-                                                // height="100px"
-                                                src={prod.image}
-                                                alt={prod.title}
-                                                fluid
-                                                rounded
-                                            />
-                                        </div>
-                                    </Col>
-                                    <Col md={2}>
-                                        <span>{prod.title}</span>
-                                    </Col>
-                                    <Col md={2}>
-                                        <span> ₹ {prod.price}</span>
-                                    </Col>
-                                    <Col md={2}>
-                                        <Form.Control
-                                            as="select"
-                                            value={prod.qty}
-                                            onChange={(e) => {
-                                                dispatch({
-                                                    type: "CHANGE_CART_QTY",
-                                                    payload: {
-                                                        id: prod.id,
-                                                        qty: e.target.value,
-                                                    },
-                                                });
-                                            }}
-                                        >
-                                            {[
-                                                ...Array(prod.inStock).keys(),
-                                            ].map((x) => (
-                                                <option key={x + 1}>
-                                                    {x + 1}
-                                                </option>
-                                            ))}
-                                        </Form.Control>
-                                    </Col>
-                                    <Col md={2}>
-                                        {/* <Button
+                                {/* </Button> */}
+                            </Col>
+                        </Row>
+                        <ListGroup>
+                            {cart.map((prod) => (
+                                <ListGroup.Item key={prod.id}>
+                                    <Row>
+                                        <Col md={2}>
+                                            <div className="img-cart">
+                                                <Image
+                                                    // height="100px"
+                                                    src={prod.image}
+                                                    alt={prod.title}
+                                                    fluid
+                                                    rounded
+                                                />
+                                            </div>
+                                        </Col>
+                                        <Col md={2}>
+                                            <span>{prod.title}</span>
+                                        </Col>
+                                        <Col md={2}>
+                                            <span> ₹ {prod.price}</span>
+                                        </Col>
+                                        <Col md={2}>
+                                            <Form.Control
+                                                as="select"
+                                                value={prod.qty}
+                                                onChange={(e) => {
+                                                    dispatch({
+                                                        type: "CHANGE_CART_QTY",
+                                                        payload: {
+                                                            id: prod.id,
+                                                            qty: e.target.value,
+                                                        },
+                                                    });
+                                                }}
+                                            >
+                                                {[
+                                                    ...Array(
+                                                        prod.inStock
+                                                    ).keys(),
+                                                ].map((x) => (
+                                                    <option key={x + 1}>
+                                                        {x + 1}
+                                                    </option>
+                                                ))}
+                                            </Form.Control>
+                                        </Col>
+                                        <Col md={2}>
+                                            {/* <Button
                                             type="button"
                                             variant="light"
                                             onClick={() => {
@@ -135,39 +138,42 @@ const CartPage = () => {
                                                 });
                                             }}
                                         > */}
-                                        <AiFillDelete
-                                            onClick={() => {
-                                                dispatch({
-                                                    type: "REMOVE_FROM_CART",
-                                                    payload: prod,
-                                                });
-                                            }}
-                                            fontSize="20px"
-                                        />
-                                        {/* </Button> */}
-                                    </Col>
-                                </Row>
-                            </ListGroup.Item>
-                        ))}
-                    </ListGroup>
-                </div>
+                                            <AiFillDelete
+                                                onClick={() => {
+                                                    dispatch({
+                                                        type: "REMOVE_FROM_CART",
+                                                        payload: prod,
+                                                    });
+                                                }}
+                                                fontSize="20px"
+                                            />
+                                            {/* </Button> */}
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                            ))}
+                        </ListGroup>
+                    </div>
 
-                <div className="filters summary">
-                    <span className="title">
-                        Subtotal ({cart.length}) items
-                    </span>
-                    <span style={{ fontWeight: 700, fontSize: 20 }}>
-                        Total: ₹ {total}
-                    </span>
-                    <Button
-                        className="proceed"
-                        type="button"
-                        disabled={cart.length === 0}
-                    >
-                        Proceed to Checkout
-                    </Button>
+                    <div className="filters summary">
+                        <span className="title">
+                            Subtotal ({cart.length}) items
+                        </span>
+                        <span style={{ fontWeight: 700, fontSize: 20 }}>
+                            Total: ₹ {total}
+                        </span>
+                        <Button
+                            className="proceed"
+                            type="button"
+                            disabled={cart.length === 0}
+                        >
+                            Proceed to Checkout
+                        </Button>
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <h3 className="empty">Add Products to cart to see here !</h3>
+            )}
             {/* <Home /> */}
             {/* <Clients /> */}
             {/* <Release /> */}
