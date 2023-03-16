@@ -1,0 +1,7 @@
+.super-rare .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.card-image img {
+    margin: 10%;
+}
