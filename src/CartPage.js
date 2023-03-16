@@ -7,8 +7,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 // import Release from "./components/Release";
 import ScrollToTop from "./components/ScrollToTop";
-// import Signup from "./components/Signup";
-// import SuperRare from "./components/SuperRare";
 import { CartState } from "./context/Context";
 // import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
@@ -32,7 +30,7 @@ const CartPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    
+
 
     const [total, setTotal] = useState();
 
@@ -45,77 +43,79 @@ const CartPage = () => {
             <ScrollToTop />
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
 
-            <div>
-                <ListGroup>
-                    {cart.map((prod) => (
-                        <ListGroup.Item key={prod.id}>
-                            <Row>
-                                <Col md={2}>
-                                    <Image
-                                        // height="100px"
-                                        src={prod.image}
-                                        alt={prod.title}
-                                        fluid
-                                        rounded
-                                    />
-                                </Col>
-                                <Col md={2}>
-                                    <span>{prod.title}</span>
-                                </Col>
-                                <Col md={2}>
-                                    <span> ₹ {prod.price}</span>
-                                </Col>
-                                <Col md={2}>
-                                    <Form.Control
-                                        as="select"
-                                        value={prod.qty}
-                                        onChange={(e) => {
-                                            dispatch({
-                                                type: "CHANGE_CART_QTY",
-                                                payload: {
-                                                    id: prod.id,
-                                                    qty: e.target.value,
-                                                },
-                                            });
-                                        }}
-                                    >
-                                        {[...Array(prod.inStock).keys()].map(
-                                            (x) => (
-                                                <option key={x + 1}>
-                                                    {x + 1}
-                                                </option>
-                                            )
-                                        )}
-                                    </Form.Control>
-                                </Col>
-                                <Col md={2}>
-                                    <Button
-                                        type="button"
-                                        variant="light"
-                                        onClick={() => {
-                                            dispatch({
-                                                type: "REMOVE_FROM_CART",
-                                                payload: prod,
-                                            });
-                                        }}
-                                    >
-                                        <AiFillDelete fontSize="20px" />
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </ListGroup.Item>
-                    ))}
-                </ListGroup>
+            <div className="cart">
+                <div className="product">
+                    <ListGroup>
+                        {cart.map((prod) => (
+                            <ListGroup.Item key={prod.id}>
+                                <Row>
+                                    <Col md={2}>
+                                        <div className="img-cart">
+                                            <Image
+                                                // height="100px"
+                                                src={prod.image}
+                                                alt={prod.title}
+                                                fluid
+                                                rounded
+                                            />
+                                        </div>
+                                    </Col>
+                                    <Col md={2}>
+                                        <span>{prod.title}</span>
+                                    </Col>
+                                    <Col md={2}>
+                                        <span> ₹ {prod.price}</span>
+                                    </Col>
+                                    <Col md={2}>
+                                        <Form.Control
+                                            as="select"
+                                            value={prod.qty}
+                                            onChange={(e) => {
+                                                dispatch({
+                                                    type: "CHANGE_CART_QTY",
+                                                    payload: {
+                                                        id: prod.id,
+                                                        qty: e.target.value,
+                                                    },
+                                                });
+                                            }}
+                                        >
+                                            {[...Array(prod.inStock).keys()].map(
+                                                (x) => (
+                                                    <option key={x + 1}>
+                                                        {x + 1}
+                                                    </option>
+                                                )
+                                            )}
+                                        </Form.Control>
+                                    </Col>
+                                    <Col md={2}>
+                                        <Button
+                                            type="button"
+                                            variant="light"
+                                            onClick={() => {
+                                                dispatch({
+                                                    type: "REMOVE_FROM_CART",
+                                                    payload: prod,
+                                                });
+                                            }}
+                                        >
+                                            <AiFillDelete fontSize="20px" />
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                        ))}
+                    </ListGroup>
+                </div>
             </div>
-            <div className="total">
-                <span>Total {cart.length} items</span>
-                <br />
-                <span>Total ₹ {total}</span>
-                <br />
-                <Button type="button" disabled={cart.length === 0}>
-                    Proceed to CheckOut
-                </Button>
-            </div>
+            <div className="filters summary">
+        <span className="title">Subtotal ({cart.length}) items</span>
+        <span style={{ fontWeight: 700, fontSize: 20 }}>Total: ₹ {total}</span>
+        <Button type="button" disabled={cart.length === 0}>
+          Proceed to Checkout
+        </Button>
+      </div>
             {/* <Home /> */}
             {/* <Clients /> */}
             {/* <Release /> */}
