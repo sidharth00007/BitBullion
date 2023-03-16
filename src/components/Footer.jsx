@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="brand">
             <img src={logo} alt="logo" />
           </div>
-          <p>Exclusive NFT Collection</p>
+          <p>Exclusive gold options</p>
           <ul>
             {socialLink.map((link, index) => (
               <li key={index}>{link}</li>
@@ -57,8 +57,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="lower">
-        <span>&copy; Copyright 2022 NFT</span>
-        <span>Launching August 2022</span>
+        <span>&copy; Copyright 2022 BitBullion</span>
+        <span>Launching this year</span>
       </div>
     </footer>
   );

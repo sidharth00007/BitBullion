@@ -24,7 +24,7 @@ export default function Like() {
           </div>
           <h2 className="title">Why buy gold with bitcoin?</h2>
           <p className="description">
-            DGold has proven to be a stable investment for centuries. If you buy gold with bitcoin you are less exposed to the volatility risk of bitcoin and you spread your investments among multiple assets classes. This will diversify your investment portfolio and limit your risk.
+            Gold has proven to be a stable investment for centuries. If you buy gold with bitcoin you are less exposed to the volatility risk of bitcoin and you spread your investments among multiple assets classes. This will diversify your investment portfolio and limit your risk.
           </p>
         </div>
       </div>
