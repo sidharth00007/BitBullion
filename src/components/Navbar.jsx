@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { ImSun } from "react-icons/im";
@@ -11,8 +11,12 @@ import { CartState } from "../context/Context";
 
 export default function Navbar({ changeTheme, currentTheme }) {
     const {
-        state: { cart }
+        state: { cart },
     } = CartState();
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
     const [navState, setNavState] = useState(false);
     return (
         <nav>

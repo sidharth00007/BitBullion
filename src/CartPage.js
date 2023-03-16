@@ -30,8 +30,11 @@ const CartPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6b382bf19d470127ebb52316f197fc5db8335068
     const [total, setTotal] = useState();
 
     useEffect(() => {
