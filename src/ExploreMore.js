@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+
 import { CartState } from "./context/Context";
 // import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
@@ -20,6 +21,7 @@ const ExploreMore = () => {
     
     return (
         <div data-theme={theme} className="app-container">
+            
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
             <div className="super-rare">
                 <div className="title-container">

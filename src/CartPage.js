@@ -14,6 +14,11 @@ import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 // import Card from "./components/Card";
 import { AiFillDelete } from "react-icons/ai";
 
+
+const handleClick = () => {
+    alert('Your order is confirmed! Thank You!')
+};
+
 const CartPage = () => {
     const {
         state: { cart },
@@ -163,6 +168,7 @@ const CartPage = () => {
                             Total: ₹ {total}
                         </span>
                         <Button
+                            onClick={handleClick}
                             className="proceed"
                             type="button"
                             disabled={cart.length === 0}

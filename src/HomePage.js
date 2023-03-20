@@ -6,11 +6,14 @@ import Home from "./components/Home";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 import Release from "./components/Release";
+// import Spinner from "./components/Spinner";
 // import ScrollToTop from "./components/ScrollToTop";
 // import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 // import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
+
+
 
 const HomePage = () => {
     const [theme, setTheme] = useState("dark");
@@ -20,12 +23,7 @@ const HomePage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    window.setTimeout(() => {
-        const home = document.getElementsByClassName("home");
-        home[0].style.transform = "none";
-        const nav = document.getElementsByTagName("nav");
-        nav[0].style.transform = "none";
-    }, 1500);
+    
     return (
         <div data-theme={theme} className="app-container">
             {/* <ScrollToTop /> */}

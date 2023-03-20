@@ -48,9 +48,10 @@
         rgba(100, 78, 26, 1) 80.68%
     ) !important ;
     background-origin: border-box;
+    text-decoration: none;
     background-clip: content-box, border-box;
     box-shadow: 2px 1000px 1px var(--background) inset;
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out ;
     // width: 10vh;
     // font-size: ;
     width: 15%;

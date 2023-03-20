@@ -8,11 +8,10 @@ import "./sass/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ExploreMore from "./ExploreMore";
 
+
 function App() {
-    // const [theme, setTheme] = useState("dark");
-    // const changeTheme = () => {
-    //   theme === "dark" ? setTheme("light") : setTheme("dark");
-    // };
+
+
     useEffect(() => {
         const registerAnimations = () => {
             const sr = scrollreveal({
@@ -40,16 +39,24 @@ function App() {
         };
         registerAnimations();
     }, []);
-    
+
     return (
         <div>
+
+
+
+
             <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
+                <Routes><Route path="/" element={<HomePage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/buyer" element={<ExploreMore />} />
                 </Routes>
             </BrowserRouter>
+
+
+
+
+
         </div>
     );
 }

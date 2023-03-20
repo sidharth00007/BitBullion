@@ -1,4 +1,5 @@
 import React from "react";
+// import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import home from "../assets/gold.png";
 export default function Home() {
