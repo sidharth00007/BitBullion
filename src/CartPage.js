@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 // import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 // import Release from "./components/Release";
-import ScrollToTop from "./components/ScrollToTop";
+// import ScrollToTop from "./components/ScrollToTop";
 import { CartState } from "./context/Context";
 // import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
@@ -43,7 +43,7 @@ const CartPage = () => {
 
     return (
         <div data-theme={theme} className="app-container">
-            <ScrollToTop />
+            {/* <ScrollToTop /> */}
             <Navbar changeTheme={changeTheme} currentTheme={theme} />
 
             {cart.length > 0 ? (
